@@ -147,7 +147,7 @@ int main() {
 
     cout << "Popcorn queue:" << endl;
     for (const auto &person : popcornLine)
-        cout <<  << endl;
+        cout << person << endl;
 
     return 0;
 }
