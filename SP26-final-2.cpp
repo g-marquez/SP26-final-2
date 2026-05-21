@@ -4,6 +4,7 @@
 #include <string>
 #include <deque>
 #include <vector>
+#include <list>
 using namespace std;
 
 int ARR_SIZE = 15, ROUNDS = 10, LIST_START = 3;
@@ -22,6 +23,7 @@ int main() {
     Node *head = nullptr;
     deque<string> muffinLine;
     vector<string> braceletLine;
+    list<string> popcornLine;
     
     string names[ARR_SIZE] = {
         "Oliver", "Emma", "Liam", "Ava", "Noah",
@@ -102,6 +104,28 @@ int main() {
                 cout << name << " joined the bracelet queue" << endl;
             }
         }
+
+        //Milestone 5 list simulation
+        cout << "Popcorn queue:" << endl;
+        if (popcornLine.empty()) {
+             int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB) {
+                string name = names[rand() % ARR_SIZE];
+                popcornLine.push_back(name);
+                cout << name << " joined the popcorn queue" << endl;
+            }
+            else
+                cout << "No change" << endl;
+        }
+        else {
+            cout << popcornLine.front() << " was served popcorn" << endl;
+            popcornLine.pop_front();
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB) {
+                popcornLine.push_back(names[rand() % ARR_SIZE]);
+                cout << popcornLine.back() << " joined the popcorn queue" << endl;
+            }
+        }
         cout << endl;
     }
 
@@ -112,6 +136,7 @@ int main() {
         cout << current->name << endl;
         current = current->next;
     }
+
     cout << "Muffin queue:" << endl;
     for (int i = 0; i < muffinLine.size(); ++i)
         cout << muffinLine[i] << endl;
@@ -119,6 +144,10 @@ int main() {
     cout << "Bracelet queue:" << endl;
     for (int i; i < braceletLine.size(); ++i)
         cout << braceletLine[i] << endl;
+
+    cout << "Popcorn queue:" << endl;
+    for (const auto &person : popcornLine)
+        cout <<  << endl;
 
     return 0;
 }
