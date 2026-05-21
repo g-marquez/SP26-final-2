@@ -129,7 +129,7 @@ int main() {
         cout << endl;
     }
 
-    cout << "Remaining customers:" << endl;
+    cout << "\nRemaining customers:" << endl;
     cout << "Coffee queue:" << endl;
     Node *current = head;
     while (current) {
@@ -142,7 +142,7 @@ int main() {
         cout << muffinLine[i] << endl;
 
     cout << "\nBracelet queue:" << endl;
-    for (int i; i < braceletLine.size(); ++i)
+    for (int i = 0; i < braceletLine.size(); ++i)
         cout << braceletLine[i] << endl;
 
     cout << "\nPopcorn queue:" << endl;
