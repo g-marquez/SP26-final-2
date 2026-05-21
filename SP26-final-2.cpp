@@ -41,7 +41,7 @@ int main() {
     cout << endl;
 
     for (int i = 0; i < ROUNDS; ++i) {
-        cout << "Round: " << i + 1 << endl;
+        cout << "\tRound: " << i + 1 << endl;
         cout << "Coffee queue:" << endl;
         if (!head) {
             int prob = rand() % 100 + 1;
@@ -62,7 +62,7 @@ int main() {
         }
 
         //Milestone 3 deque simulation
-        cout << "Muffin queue:" << endl;
+        cout << "\nMuffin queue:" << endl;
         if (muffinLine.empty()) {
             int prob = rand() % 100 + 1;
             if (prob <= JOIN_PROB) {
@@ -83,7 +83,7 @@ int main() {
         }
 
         //Milestone 4 vector simulation
-        cout << "Bracelet queue:" << endl;
+        cout << "\nBracelet queue:" << endl;
         if (braceletLine.empty()) {
             int prob = rand() % 100 + 1;
             if (prob <= JOIN_PROB) {
@@ -106,7 +106,7 @@ int main() {
         }
 
         //Milestone 5 list simulation
-        cout << "Popcorn queue:" << endl;
+        cout << "\nPopcorn queue:" << endl;
         if (popcornLine.empty()) {
              int prob = rand() % 100 + 1;
             if (prob <= JOIN_PROB) {
@@ -137,15 +137,15 @@ int main() {
         current = current->next;
     }
 
-    cout << "Muffin queue:" << endl;
+    cout << "\nMuffin queue:" << endl;
     for (int i = 0; i < muffinLine.size(); ++i)
         cout << muffinLine[i] << endl;
 
-    cout << "Bracelet queue:" << endl;
+    cout << "\nBracelet queue:" << endl;
     for (int i; i < braceletLine.size(); ++i)
         cout << braceletLine[i] << endl;
 
-    cout << "Popcorn queue:" << endl;
+    cout << "\nPopcorn queue:" << endl;
     for (const auto &person : popcornLine)
         cout << person << endl;
 
