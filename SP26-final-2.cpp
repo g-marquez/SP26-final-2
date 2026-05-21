@@ -26,17 +26,34 @@ int main() {
         "Caffè Latte","Americano","Mocha","Cold Brew","Chai Latte",
         "Matcha Latte","Affogato","Water","Refresher","Juice"};
 
+    //testing linked list for Milestone 1
+    for (int i = 0; i < 3; ++i) {
+        addToTail(head, names, drinks);
+    }
+
     
 
     return 0;
 }
 
 void addToTail(Node *&head, string n[], string d[]) {
-    string name = n[rand() % ARR_SIZE];
+    string person = n[rand() % ARR_SIZE];
     string drink = d[rand() % ARR_SIZE];
 
     Node *newCustomer = new Node;
     if (!head) {
-        
+        head = newCustomer;
+        newCustomer->next = nullptr;
+        newCustomer->name = person;
+        newCustomer->order = drink;
+    }
+    else {
+        Node *current = head;
+        while (current->next)
+            current = current->next;
+        current->next = newCustomer;
+        newCustomer->next = nullptr;
+        newCustomer->name = person;
+        newCustomer->order = drink;
     }
 }
