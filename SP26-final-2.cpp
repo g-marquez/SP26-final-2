@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <deque>
 using namespace std;
 
 int ARR_SIZE = 15, ROUNDS = 10, LIST_START = 3;
@@ -18,6 +19,7 @@ void addToTail(Node *&, string[], string[]);
 int main() {
     srand(time(0));
     Node *head = nullptr;
+    deque<string> muffinLine;
     
     string names[ARR_SIZE] = {
         "Oliver", "Emma", "Liam", "Ava", "Noah",
@@ -36,6 +38,7 @@ int main() {
 
     for (int i = 0; i < ROUNDS; ++i) {
         cout << "Round: " << i + 1 << endl;
+        cout << "Coffee queue:" << endl;
         if (!head) {
             int prob = rand() % 100 + 1;
             if (prob <= JOIN_PROB)
@@ -53,6 +56,22 @@ int main() {
             if (prob <= JOIN_PROB)
                 addToTail(head, names, drinks);
         }
+
+        //Milestone 3 deque simulation
+        cout << "Muffin queue:" << endl;
+        if (muffinLine.empty()) {
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB) {
+                muffinLine.push_back(names[rand() % ARR_SIZE]);
+                cout << muffinLine.back() << " joined the queue" << endl;
+            }
+            else
+                cout << "No change" << endl;
+        }
+        else {
+            cout << muffinLine.front() << " was served a muffin" << endl;
+        }
+
         cout << endl;
     }
 
