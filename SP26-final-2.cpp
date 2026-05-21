@@ -5,7 +5,7 @@
 using namespace std;
 
 int ARR_SIZE = 15, ROUNDS = 10, LIST_START = 3;
-int SERVE_PROB = 50;
+int JOIN_PROB = 50;
 
 struct Node {
     string name;
@@ -35,7 +35,20 @@ int main() {
 
     for (int i = 0; i < ROUNDS; ++i) {
         if (!head) {
-            int prob = 
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB)
+                addToTail(head, names, drinks);
+        }
+        else {
+            //first in line is served, pop front
+            Node *current = head;
+            Node *prev = nullptr;
+            if (current) {
+
+            }
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB)
+                addToTail(head, names, drinks);
         }
     }
 
