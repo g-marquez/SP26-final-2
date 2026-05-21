@@ -48,7 +48,7 @@ int main() {
         }
         else {
             Node *current = head;
-            cout << current->name << " was served a " << current->order << endl;
+            cout << current->name << " was served a(n) " << current->order << endl;
             head = current->next;
             delete current;
             current = nullptr;
@@ -63,24 +63,34 @@ int main() {
             int prob = rand() % 100 + 1;
             if (prob <= JOIN_PROB) {
                 muffinLine.push_back(names[rand() % ARR_SIZE]);
-                cout << muffinLine.back() << " joined the queue" << endl;
+                cout << muffinLine.back() << " joined the muffin queue" << endl;
             }
             else
                 cout << "No change" << endl;
         }
         else {
             cout << muffinLine.front() << " was served a muffin" << endl;
+            muffinLine.pop_front();
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB) {
+                muffinLine.push_back(names[rand() % ARR_SIZE]);
+                cout << muffinLine.back() << " joined the muffin queue" << endl;
+            }
         }
 
         cout << endl;
     }
 
     cout << "Remaining customers:" << endl;
+    cout << "Coffee queue:" << endl;
     Node *current = head;
     while (current) {
         cout << current->name << endl;
         current = current->next;
     }
+    cout << "Muffin queue:" << endl;
+    for (int i = 0; i < muffinLine.size(); ++i)
+        cout << muffinLine[i] << endl;
 
     return 0;
 }
@@ -95,7 +105,7 @@ void addToTail(Node *&head, string n[], string d[]) {
         newCustomer->next = nullptr;
         newCustomer->name = person;
         newCustomer->order = drink;
-        cout << newCustomer->name << " joined the queue" << endl;
+        cout << newCustomer->name << " joined the coffee queue" << endl;
     }
     else {
         Node *current = head;
@@ -105,6 +115,6 @@ void addToTail(Node *&head, string n[], string d[]) {
         newCustomer->next = nullptr;
         newCustomer->name = person;
         newCustomer->order = drink;
-        cout << newCustomer->name << " joined the queue" << endl;
+        cout << newCustomer->name << " joined the coffee queue" << endl;
     }
 }
