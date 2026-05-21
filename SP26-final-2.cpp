@@ -12,6 +12,8 @@ struct Node {
     Node *next;
 };
 
+void addToTail(Node *&, string[], string[]);
+
 int main() {
     Node *head = nullptr;
     
@@ -27,4 +29,14 @@ int main() {
     
 
     return 0;
+}
+
+void addToTail(Node *&head, string n[], string d[]) {
+    string name = n[rand() % ARR_SIZE];
+    string drink = d[rand() % ARR_SIZE];
+
+    Node *newCustomer = new Node;
+    if (!head) {
+        
+    }
 }
