@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+int ARR_SIZE = 15;
+
 struct Node {
     string name;
     string order;
@@ -11,7 +13,18 @@ struct Node {
 };
 
 int main() {
+    Node *head = nullptr;
+    
+    string names[ARR_SIZE] = {
+        "Oliver", "Emma", "Liam", "Ava", "Noah",
+        "Sophia", "Lucas", "Isabella", "Mason", "Mia",
+        "Ethan", "Harper", "James", "Evelyn", "Alexander"};
+    string drinks[ARR_SIZE] = {
+        "Espresso","Macchiato","Cortado","Cappuccino","Flat White",
+        "Caffè Latte","Americano","Mocha","Cold Brew","Chai Latte",
+        "Matcha Latte","Affogato","Water","Refresher","Juice"};
 
+    
 
     return 0;
 }
