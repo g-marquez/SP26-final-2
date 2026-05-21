@@ -31,7 +31,11 @@ int main() {
         addToTail(head, names, drinks);
     }
 
-    
+    Node *current = head;
+    while (current) {
+        cout << current->name << " " << current->order << endl;
+        current = current->next;
+    }
 
     return 0;
 }
