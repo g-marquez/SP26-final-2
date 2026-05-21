@@ -116,6 +116,10 @@ int main() {
     for (int i = 0; i < muffinLine.size(); ++i)
         cout << muffinLine[i] << endl;
 
+    cout << "Bracelet queue:" << endl;
+    for (int i; i < braceletLine.size(); ++i)
+        cout << braceletLine[i] << endl;
+
     return 0;
 }
 
