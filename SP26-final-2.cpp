@@ -32,13 +32,7 @@ int main() {
     for (int i = 0; i < LIST_START; ++i) {
         addToTail(head, names, drinks);
     }
-
-    cout << "Initial queue for coffee shop:" << endl;
-    Node *current = head;
-    while (current) {
-        cout << current->name << endl;
-        current = current->next;
-    }
+    cout << endl;
 
     for (int i = 0; i < ROUNDS; ++i) {
         cout << "Round: " << i + 1 << endl;
@@ -46,9 +40,12 @@ int main() {
             int prob = rand() % 100 + 1;
             if (prob <= JOIN_PROB)
                 addToTail(head, names, drinks);
+            else
+                cout << "No change" << endl;
         }
         else {
             Node *current = head;
+            cout << current->name << " was served a " << current->order << endl;
             head = current->next;
             delete current;
             current = nullptr;
@@ -56,11 +53,13 @@ int main() {
             if (prob <= JOIN_PROB)
                 addToTail(head, names, drinks);
         }
+        cout << endl;
     }
 
-    current = head;
+    cout << "Remaining customers:" << endl;
+    Node *current = head;
     while (current) {
-        cout << current->name << " " << current->order << endl;
+        cout << current->name << endl;
         current = current->next;
     }
 
