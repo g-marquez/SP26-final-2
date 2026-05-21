@@ -33,30 +33,41 @@ int main() {
         addToTail(head, names, drinks);
     }
 
-    for (int i = 0; i < ROUNDS; ++i) {
-        if (!head) {
-            int prob = rand() % 100 + 1;
-            if (prob <= JOIN_PROB)
-                addToTail(head, names, drinks);
-        }
-        else {
-            //first in line is served, pop front
-            Node *current = head;
-            Node *prev = nullptr;
-            if (current) {
-
-            }
-            int prob = rand() % 100 + 1;
-            if (prob <= JOIN_PROB)
-                addToTail(head, names, drinks);
-        }
-    }
+    // for (int i = 0; i < ROUNDS; ++i) {
+    //     if (!head) {
+    //         int prob = rand() % 100 + 1;
+    //         if (prob <= JOIN_PROB)
+    //             addToTail(head, names, drinks);
+    //     }
+    //     else {
+    //         //first in line is served, pop front
+    //         Node *current = head;
+    //         head = current->next;
+    //         delete current;
+    //         current = nullptr;
+    //         int prob = rand() % 100 + 1;
+    //         if (prob <= JOIN_PROB)
+    //             addToTail(head, names, drinks);
+    //     }
+    // }
 
     Node *current = head;
     while (current) {
         cout << current->name << " " << current->order << endl;
         current = current->next;
     }
+    //testing deleting head node
+    current = head;
+    head = current->next;
+    delete current;
+    current = nullptr;
+
+    current = head;
+    while (current) {
+        cout << current->name << " " << current->order << endl;
+        current = current->next;
+    }
+
 
     return 0;
 }
