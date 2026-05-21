@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <deque>
+#include <vector>
 using namespace std;
 
 int ARR_SIZE = 15, ROUNDS = 10, LIST_START = 3;
@@ -20,6 +21,7 @@ int main() {
     srand(time(0));
     Node *head = nullptr;
     deque<string> muffinLine;
+    vector<string> braceletLine;
     
     string names[ARR_SIZE] = {
         "Oliver", "Emma", "Liam", "Ava", "Noah",
@@ -78,6 +80,28 @@ int main() {
             }
         }
 
+        //Milestone 4 vector simulation
+        cout << "Bracelet queue:" << endl;
+        if (braceletLine.empty()) {
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB) {
+                string name = names[rand() % ARR_SIZE];
+                braceletLine.push_back(name);
+                cout << name << " joined the bracelet queue" << endl;
+            }
+            else
+                cout << "No change" << endl;
+        }
+        else {
+            cout << braceletLine[0] << " bought a friendship bracelet" << endl;
+            braceletLine.erase(braceletLine.begin());
+            int prob = rand() % 100 + 1;
+            if (prob <= JOIN_PROB) {
+                string name = names[rand() % ARR_SIZE];
+                braceletLine.push_back(name);
+                cout << name << " joined the bracelet queue" << endl;
+            }
+        }
         cout << endl;
     }
 
