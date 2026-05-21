@@ -4,7 +4,8 @@
 #include <string>
 using namespace std;
 
-int ARR_SIZE = 15;
+int ARR_SIZE = 15, ROUNDS = 10, LIST_START = 3;
+int SERVE_PROB = 50;
 
 struct Node {
     string name;
@@ -15,6 +16,7 @@ struct Node {
 void addToTail(Node *&, string[], string[]);
 
 int main() {
+    srand(time(0));
     Node *head = nullptr;
     
     string names[ARR_SIZE] = {
@@ -26,9 +28,15 @@ int main() {
         "Caffè Latte","Americano","Mocha","Cold Brew","Chai Latte",
         "Matcha Latte","Affogato","Water","Refresher","Juice"};
 
-    //testing linked list for Milestone 1
-    for (int i = 0; i < 3; ++i) {
+    //simulation for Milestone 2
+    for (int i = 0; i < LIST_START; ++i) {
         addToTail(head, names, drinks);
+    }
+
+    for (int i = 0; i < ROUNDS; ++i) {
+        if (!head) {
+            int prob = 
+        }
     }
 
     Node *current = head;
